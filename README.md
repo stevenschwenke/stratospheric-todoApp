@@ -16,3 +16,7 @@ It is a [Maven](https://maven.apache.org/) based project, so you can open this p
  * `cdk docs`        open CDK documentation
 
 Enjoy!
+
+## Deployment
+
+cdk deploy -c accountId=582070606165 -c region=eu-central-1 -c applicationName=dockerrepositoryapp

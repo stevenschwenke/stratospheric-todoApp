@@ -1,41 +1,47 @@
 package com.myorg;
 
+import dev.stratospheric.cdk.DockerRepository;
 import software.amazon.awscdk.core.App;
 import software.amazon.awscdk.core.Environment;
+import software.amazon.awscdk.core.Stack;
 import software.amazon.awscdk.core.StackProps;
 
-import java.util.Arrays;
+import static java.util.Objects.requireNonNull;
 
 public class DockerRepositoryAppApp {
+
     public static void main(final String[] args) {
         App app = new App();
 
-        new DockerRepositoryAppStack(app, "DockerRepositoryAppStack", StackProps.builder()
-                // If you don't specify 'env', this stack will be environment-agnostic.
-                // Account/Region-dependent features and context lookups will not work,
-                // but a single synthesized template can be deployed anywhere.
+        String accountId = (String) app.getNode().tryGetContext("accountId");
+        requireNonNull(accountId, "context variable 'accountId' must not be null");
 
-                // Uncomment the next block to specialize this stack for the AWS Account
-                // and Region that are implied by the current CLI configuration.
-                /*
-                .env(Environment.builder()
-                        .account(System.getenv("CDK_DEFAULT_ACCOUNT"))
-                        .region(System.getenv("CDK_DEFAULT_REGION"))
-                        .build())
-                */
+        String region = (String) app.getNode().tryGetContext("region");
+        requireNonNull(region, "context variable 'region' must not be null");
 
-                // Uncomment the next block if you know exactly what Account and Region you
-                // want to deploy the stack to.
-                /*
-                .env(Environment.builder()
-                        .account("123456789012")
-                        .region("us-east-1")
-                        .build())
-                */
+        String applicationName = (String) app.getNode().tryGetContext("applicationName");
+        requireNonNull(applicationName, "context variable 'applicationName' must not be null");
 
-                // For more information, see https://docs.aws.amazon.com/cdk/latest/guide/environments.html
+        Environment awsEnvironment = makeEnv(accountId, region);
+
+        Stack dockerRepositoryStack = new Stack(app, "DockerRepositoryStack", StackProps.builder()
+                .stackName(applicationName + "-DockerRepository")
+                .env(awsEnvironment)
                 .build());
 
+        DockerRepository dockerRepository = new DockerRepository(
+                dockerRepositoryStack,
+                "DockerRepository",
+                awsEnvironment,
+                new DockerRepository.DockerRepositoryInputParameters(applicationName, accountId));
+
         app.synth();
+    }
+
+    static Environment makeEnv(String account, String region) {
+        return Environment.builder()
+                .account(account)
+                .region(region)
+                .build();
     }
 }
