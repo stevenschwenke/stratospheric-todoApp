@@ -1,0 +1,12 @@
+{
+  "name": "stratospheric-cdk",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "repository:deploy": "cdk deploy --app \"./mvnw -e -q compile exec:java -Dexec.mainClass=de.stevenschwenke.aws.stratospheric.cdk.DockerRepositoryApp\" -c applicationName=docker-repository-app -c accountId=582070606165 -c region=eu-central-1 --require-approval never",
+    "repository:destroy": "cdk destroy --app \"./mvnw -e -q compile exec:java -Dexec.mainClass=de.stevenschwenke.aws.stratospheric.cdk.DockerRepositoryApp\" -c applicationName=docker-repository-app -c accountId=582070606165 -c region=eu-central-1 --force --require-approval never"
+  },
+  "devDependencies": {
+    "aws-cdk": "1.124.0"
+  }
+}

@@ -1,4 +1,4 @@
-package com.myorg;
+package de.stevenschwenke.aws.stratospheric.cdk;
 
 import dev.stratospheric.cdk.DockerRepository;
 import software.amazon.awscdk.core.App;
