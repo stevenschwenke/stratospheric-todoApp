@@ -1,22 +1,10 @@
-# Welcome to your CDK Java project!
+# Welcome to the Stratospheric example TODO-app
 
-This is a blank project for Java development with CDK.
-
-The `cdk.json` file tells the CDK Toolkit how to execute your app.
-
-It is a [Maven](https://maven.apache.org/) based project, so you can open this project with any Maven compatible Java IDE to build and run tests.
+This is the example app from the book Stratospheric.
 
 ## Useful commands
 
- * `mvn package`     compile and run tests
- * `cdk ls`          list all stacks in the app
- * `cdk synth`       emits the synthesized CloudFormation template
- * `cdk deploy`      deploy this stack to your default AWS account/region
- * `cdk diff`        compare deployed stack with current state
- * `cdk docs`        open CDK documentation
+ * `npm install`     Installs NPM dependencies. NPM is used as a script engine to ease the actual deployment scripts. 
+ * `npm run repository:deploy`          Deploys the repository-app. See package.json for all the apps. 
+ * `npm run repository:destroy`          Destroys the repository-app. See package.json for all the apps. 
 
-Enjoy!
-
-## Deployment
-
-cdk deploy -c accountId=582070606165 -c region=eu-central-1 -c applicationName=dockerrepositoryapp
