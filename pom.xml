@@ -3,8 +3,8 @@
          xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.myorg</groupId>
-    <artifactId>docker_repository_app</artifactId>
+    <groupId>de.stevenschwenke.aws.stratospheric.cdk</groupId>
+    <artifactId>stratospheric_todo_app</artifactId>
     <version>0.1</version>
 
     <properties>
@@ -22,15 +22,6 @@
                 <configuration>
                     <source>1.8</source>
                     <target>1.8</target>
-                </configuration>
-            </plugin>
-
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>exec-maven-plugin</artifactId>
-                <version>3.0.0</version>
-                <configuration>
-                    <mainClass>de.stevenschwenke.aws.stratospheric.cdk.DockerRepositoryAppApp</mainClass>
                 </configuration>
             </plugin>
         </plugins>
@@ -78,7 +69,7 @@
         <dependency>
             <groupId>dev.stratospheric</groupId>
             <artifactId>cdk-constructs</artifactId>
-            <version>0.0.25</version>
+            <version>0.0.26</version>
         </dependency>
 
     </dependencies>

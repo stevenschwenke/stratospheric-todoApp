@@ -2,6 +2,13 @@
 
 This is the example app from the book Stratospheric.
 
+## Naming of Environments
+
+There are two environments:
+
+ * staging
+ * prod
+
 ## Useful commands
 
  * `npm install`     Installs NPM dependencies. NPM is used as a script engine to ease the actual deployment scripts. 

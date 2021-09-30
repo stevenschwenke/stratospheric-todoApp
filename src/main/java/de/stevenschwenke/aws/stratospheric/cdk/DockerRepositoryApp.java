@@ -8,7 +8,7 @@ import software.amazon.awscdk.core.StackProps;
 
 import static java.util.Objects.requireNonNull;
 
-public class DockerRepositoryAppApp {
+public class DockerRepositoryApp {
 
     public static void main(final String[] args) {
         App app = new App();
