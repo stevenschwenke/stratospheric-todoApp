@@ -14,4 +14,5 @@ There are two environments:
  * `npm install`     Installs NPM dependencies. NPM is used as a script engine to ease the actual deployment scripts. 
  * `npm run repository:deploy`          Deploys the repository-app. See package.json for all the apps. 
  * `npm run repository:destroy`          Destroys the repository-app. See package.json for all the apps. 
-
+ * `npm run network:deploy`          Deploys the network-app. See package.json for all the apps.
+ * `npm run network:destroy`          Destroys the network-app. See package.json for all the apps. 
