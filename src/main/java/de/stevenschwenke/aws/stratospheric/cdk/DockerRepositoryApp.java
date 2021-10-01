@@ -6,7 +6,7 @@ import software.amazon.awscdk.core.Environment;
 import software.amazon.awscdk.core.Stack;
 import software.amazon.awscdk.core.StackProps;
 
-import static java.util.Objects.requireNonNull;
+import static de.stevenschwenke.aws.stratospheric.cdk.Validations.requireNonEmpty;
 
 public class DockerRepositoryApp {
 
@@ -14,13 +14,13 @@ public class DockerRepositoryApp {
         App app = new App();
 
         String accountId = (String) app.getNode().tryGetContext("accountId");
-        requireNonNull(accountId, "context variable 'accountId' must not be null");
+        requireNonEmpty(accountId, "context variable 'accountId' must not be null");
 
         String region = (String) app.getNode().tryGetContext("region");
-        requireNonNull(region, "context variable 'region' must not be null");
+        requireNonEmpty(region, "context variable 'region' must not be null");
 
         String applicationName = (String) app.getNode().tryGetContext("applicationName");
-        requireNonNull(applicationName, "context variable 'applicationName' must not be null");
+        requireNonEmpty(applicationName, "context variable 'applicationName' must not be null");
 
         Environment awsEnvironment = makeEnv(accountId, region);
 
